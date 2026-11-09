@@ -1,38 +1,77 @@
-# Kariyer.net Pozisyon Filtresi
+# Kariyer.net Position Filter · Pozisyon Filtresi
 
-İlgilenmediğin pozisyon adlarını listeye ekle, başlığında bu kelimeler geçen ilanlar kariyer.net'te otomatik olarak gizlensin. Tek tek "İlanla İlgilenmiyorum" tıklamana gerek kalmaz.
+A userscript that hides Kariyer.net job listings whose titles contain positions you are not interested in, so you don't have to click "Not interested" one by one.
 
-## Kurulum
+Kariyer.net'te ilgilenmediğin pozisyonları içeren ilanları otomatik gizleyen bir userscript. Tek tek "İlanla İlgilenmiyorum" tıklamana gerek kalmaz.
 
-1. Tarayıcına **[Tampermonkey](https://www.tampermonkey.net/)** eklentisini kur (Chrome, Edge, Firefox hepsinde var, ücretsiz).
-2. Tampermonkey ikonuna tıkla → **"Yeni script oluştur"**.
-3. Açılan editördeki her şeyi sil, `kariyernet-pozisyon-filtrele.user.js` dosyasının içeriğini yapıştır.
-4. `Ctrl+S` ile kaydet.
-5. [kariyer.net](https://www.kariyer.net) sayfasını aç (veya yenile).
+**[English](#english) · [Türkçe](#türkçe)**
 
-## Kullanımı
+---
 
-1. Sayfanın sağ altında **"🚫 Pozisyon Filtresi"** butonu görünecek.
-2. Butona tıkla, açılan kutuya ilgilenmediğin pozisyon adlarını yaz:
-   - Her satıra bir tane, **ya da**
-   - Virgülle ayırarak toplu halde
+## English
+
+### Install
+
+1. Install the [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/) browser extension (Chrome, Edge, Firefox).
+2. **[Click here to install the script](https://github.com/t4r1k255/kariyer-net-filtreleme-araci/raw/main/kariyernet-pozisyon-filtrele.user.js)** and confirm with **Install**.
+3. Open or refresh [kariyer.net](https://www.kariyer.net).
+
+### Usage
+
+1. Click the **🚫 Pozisyon Filtresi** button at the bottom right of the page.
+2. Enter the positions you want to hide, one per line or comma-separated:
    ```
    Tıbbi Mümessil
    Muhasebe Elemanı, Call Center, Kasiyer
    ```
-3. **"Listeye Ekle"** butonuna bas.
-4. O andan itibaren başlığında (pozisyon + şirket + konum metninde) bu ifadelerden biri geçen her ilan otomatik gizlenir — sayfa yenilense, filtre değiştirilse de kalıcıdır.
-5. Bir kelimeyi listeden çıkarmak için panelde yanındaki **"Sil"** butonuna tıkla.
+3. Press **Listeye Ekle** (Add to list). Every listing whose title, company or location text contains one of these phrases is hidden, and stays hidden after page reloads or filter changes.
+4. Remove an entry with the **Sil** (Delete) button next to it.
 
-## Nasıl eşleştiriyor?
+### How matching works
 
-- **Büyük/küçük harf önemli değil** — "SATIŞ", "Satış", "satış" hepsi aynı sayılır (Türkçe karakterler dahil, örn. İ/i doğru çevrilir).
-- **Tam ifade aranır** (kelime kelime değil) — yazdığın metin ilan başlığında **birebir, o sırada** geçmeli.
-  - `"Satış Danışmanı"` yazarsan → *"Kıdemli Satış Danışmanı"* eşleşir, ama *"Satış Temsilcisi"* eşleşmez.
-- Çok genel tek kelimeler (`"satış"` gibi) beklenenden fazla ilanı gizleyebilir; mümkünse spesifik pozisyon adı kullan.
+- **Case-insensitive**, with correct Turkish casing (İ/i, I/ı).
+- **Exact phrase match**: `Satış Danışmanı` matches *Kıdemli Satış Danışmanı* but not *Satış Temsilcisi*.
+- Very generic single words such as `satış` may hide more listings than expected.
 
-## Notlar
+### Notes
 
-- Liste tarayıcında (`localStorage`) saklanır — sadece o tarayıcı/cihazda geçerlidir, kariyer.net hesabınla senkronize olmaz.
-- Script, sayfadaki değişiklikleri izler ve gereksiz yeniden taramaları önlemek için 250ms **debounce** kullanır (performansı korumak için).
-- Bu bir tarayıcı eklentisi çözümüdür; kariyer.net'in resmi bir toplu filtreleme özelliği değildir.
+- Your list is stored in the browser's `localStorage`, so it only applies to that browser and device.
+- The script watches the page with a `MutationObserver` and uses a 250 ms debounce to avoid unnecessary re-scans.
+- Independent community tool. Not affiliated with Kariyer.net.
+
+---
+
+## Türkçe
+
+### Kurulum
+
+1. Tarayıcına [Tampermonkey](https://www.tampermonkey.net/) veya [Violentmonkey](https://violentmonkey.github.io/) eklentisini kur (Chrome, Edge, Firefox).
+2. **[Scripti kurmak için buraya tıkla](https://github.com/t4r1k255/kariyer-net-filtreleme-araci/raw/main/kariyernet-pozisyon-filtrele.user.js)** ve açılan pencerede **Install / Yükle**'ye bas.
+3. [kariyer.net](https://www.kariyer.net) sayfasını aç veya yenile.
+
+### Kullanım
+
+1. Sayfanın sağ altındaki **🚫 Pozisyon Filtresi** butonuna tıkla.
+2. İlgilenmediğin pozisyonları her satıra bir tane ya da virgülle ayırarak yaz:
+   ```
+   Tıbbi Mümessil
+   Muhasebe Elemanı, Call Center, Kasiyer
+   ```
+3. **Listeye Ekle**'ye bas. Başlığında (pozisyon, şirket ve konum metninde) bu ifadelerden biri geçen her ilan gizlenir. Sayfa yenilense veya filtre değişse de gizli kalır.
+4. Bir ifadeyi listeden çıkarmak için yanındaki **Sil** butonuna tıkla.
+
+### Nasıl eşleştiriyor?
+
+- **Büyük/küçük harf fark etmez**, Türkçe karakterler dahil (İ/i, I/ı doğru çevrilir).
+- **Tam ifade aranır:** `Satış Danışmanı` yazarsan *Kıdemli Satış Danışmanı* eşleşir, *Satış Temsilcisi* eşleşmez.
+- `satış` gibi çok genel tek kelimeler beklenenden fazla ilanı gizleyebilir; mümkünse belirli pozisyon adları kullan.
+
+### Notlar
+
+- Liste tarayıcının `localStorage` alanında saklanır; sadece o tarayıcı ve cihazda geçerlidir, kariyer.net hesabınla senkronize olmaz.
+- Script sayfayı `MutationObserver` ile izler ve gereksiz yeniden taramaları önlemek için 250 ms debounce kullanır.
+- Bağımsız bir topluluk aracıdır, Kariyer.net ile bağlantısı yoktur.
+
+## License · Lisans
+
+[MIT](LICENSE)
