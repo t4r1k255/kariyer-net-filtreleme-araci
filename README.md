@@ -1,10 +1,10 @@
 # Kariyer.net Position Filter · Pozisyon Filtresi
 
 > [!WARNING]
-> **Bu proje artık geliştirilmiyor.** Kariyer.net, Eleman.net ve Indeed filtreleri tek bir scriptte toplandı: **[İş Portalı Filtresi](https://github.com/t4r1k255/is-portali-filtresi)**. Yeni özellikler (şirket ve konum filtresi, istisnalar, tüm sitelerde ortak liste) ve düzeltmeler orada.
+> **Bu proje artık geliştirilmiyor.** Kariyer.net, Eleman.net ve Indeed filtreleri tek bir scriptte toplandı: **[İş Portalı Filtresi](https://github.com/t4r1k255/flink)**. Yeni özellikler (şirket ve konum filtresi, istisnalar, tüm sitelerde ortak liste) ve düzeltmeler orada.
 > Geçmek için yeni scripti kur ve bunu kaldır; bu scriptteki listen, yeni script siteyi ilk açtığında kendiliğinden aktarılır.
 >
-> **This project is no longer maintained.** The Kariyer.net, Eleman.net and Indeed filters were merged into one script: **[İş Portalı Filtresi](https://github.com/t4r1k255/is-portali-filtresi)**. Install it and remove this one; your list is imported automatically.
+> **This project is no longer maintained.** The Kariyer.net, Eleman.net and Indeed filters were merged into one script: **[İş Portalı Filtresi](https://github.com/t4r1k255/flink)**. Install it and remove this one; your list is imported automatically.
 
 A userscript that hides Kariyer.net job listings whose titles contain positions you are not interested in, so you don't have to click "Not interested" one by one.
 
